@@ -3,7 +3,13 @@ function cardValidator(card) {
     let cardValue = (card).split("");
     cardValue.forEach(function (str, index) {
         let numCard = parseInt(str);
-        sum += (index % 2 === 0) ? numCard * 2 : (numCard > 9) ? numCard = numCard - 9 : numCard * 2
+        if (index % 2 === 0) {
+            numCard = numCard * 2
+            if (numCard > 9) {
+                numCard -= 9;
+            }
+        }
+        sum += numCard;
     });
     return (sum % 10 === 0);
 };

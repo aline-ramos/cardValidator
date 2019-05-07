@@ -23,5 +23,20 @@ describe("cardValidator", () => {
     });
     it("Número de cartão Inválido!", () => {
         expect(card.cardValidator("558460458501491510")).to.equal(false);
+    })    
+    it("Número de cartão Inválido!", () => {
+        expect(card.cardValidator("9999999999999999")).to.equal(false);
     })
+    it("Número de cartão Inválido!", () => {
+        expect(card.cardValidator("1111111111111111")).to.equal(false);
+    })
+    it("Ops! Não contamos espaços!", () => {
+        expect(card.cardValidator("5139 9361 4452 7205")).to.equal(false);
+    });
+    it("Ops! Não pode ser vazio!", () => {
+        expect(card.cardValidator(" ")).to.equal(false);
+    });
+    it("Número de cartão Válido", () => {
+        expect(card.cardValidator("4485036425723640")).to.equal(true);
+    });
 });
